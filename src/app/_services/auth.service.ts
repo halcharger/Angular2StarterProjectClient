@@ -38,11 +38,7 @@ export class AuthService {
     };
   }
 
-  private getDecodedToken(){
-    return this.jwtHelper.decodeToken(this.getJwt());
-  }
-
-  private getJwt(){
+  getJwt(){
     return localStorage.getItem('id_token');
   }
 
@@ -52,6 +48,10 @@ export class AuthService {
 
   isLoggedIn(){
     return tokenNotExpired();
+  }
+
+  private getDecodedToken(){
+    return this.jwtHelper.decodeToken(this.getJwt());
   }
 
 }

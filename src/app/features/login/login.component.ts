@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   returnUrl: string;
@@ -16,6 +16,10 @@ export class LoginComponent {
               private router: Router, 
               private authService: AuthService) { 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+
+  ngOnInit(){
+    this.authService.logout();
   }
 
   login(username, password){

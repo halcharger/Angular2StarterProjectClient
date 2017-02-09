@@ -16,6 +16,9 @@ import { UsersComponent } from './features/users/users.component';
 import {UserService} from './_services/user.service';
 import {AuthService} from './_services/auth.service';
 
+//guards
+import {LoggedOnGuard} from './_guards/loggedOnGuard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,7 @@ import {AuthService} from './_services/auth.service';
     AppRoutingModule, 
     AuthModule
   ],
-  providers: [UserService, AuthService],
+  providers: [UserService, AuthService, LoggedOnGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
